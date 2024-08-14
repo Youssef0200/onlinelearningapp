@@ -4,6 +4,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:online_learning_app1/components/buttons.dart';
 import 'package:online_learning_app1/blocs/num_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 class PhoneScreen extends StatefulWidget {
   const PhoneScreen({super.key});
@@ -25,15 +27,15 @@ class _PhoneScreenState extends State<PhoneScreen> {
         body: Center(
           child: Column(
             children: [
-              const Text(
+               Text(
                 'Continue with Phone',
-                style: TextStyle(color: Colors.white, fontSize: 18),
+                style: TextStyle(color: Colors.white, fontSize: 18.sp),
               ),
-              const SizedBox(height: 30),
-              SvgPicture.asset('assets/phoneicon.svg'),
-              const SizedBox(height: 30),
+               SizedBox(height: 30.h),
+              // SvgPicture.asset('assets/phoneicon.svg',width: 128.w,height: 128.h,),
+              //  SizedBox(height: 30.h),
               Container(
-                height: MediaQuery.of(context).size.height * 0.63,
+                height: MediaQuery.of(context).size.height * 0.63.h,
                 decoration: const BoxDecoration(
                   color: Color(0xFF2F2F42),
                   borderRadius: BorderRadius.only(
@@ -52,20 +54,25 @@ class _PhoneScreenState extends State<PhoneScreen> {
                             builder: (context, state) {
                               return Stack(
                                 children: [
-                                  TextFormField(
-                                    controller: TextEditingController(text: state),
-                                    style: const TextStyle(
-                                        color: Colors.white, fontSize: 24),
-                                    readOnly: true,
-                                    decoration: const InputDecoration(
-                                      contentPadding: EdgeInsets.all(15),
-                                      filled: true,
-                                      fillColor: Color(0xFF3E3E55),
-                                      border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.all(
-                                          Radius.circular(15),
+                                  Container(
+                                    width:340.w,
+                                    height: 50.h,
+                                    child: TextFormField(
+
+                                      controller: TextEditingController(text: state),
+                                      style:  TextStyle(
+                                          color: Colors.white, fontSize: 24.sp),
+                                      readOnly: true,
+                                      decoration: const InputDecoration(
+                                        contentPadding: EdgeInsets.all(15),
+                                        filled: true,
+                                        fillColor: Color(0xFF3E3E55),
+                                        border: OutlineInputBorder(
+                                          borderRadius: BorderRadius.all(
+                                            Radius.circular(15),
+                                          ),
+                                          borderSide: BorderSide.none,
                                         ),
-                                        borderSide: BorderSide.none,
                                       ),
                                     ),
                                   ),
@@ -82,8 +89,8 @@ class _PhoneScreenState extends State<PhoneScreen> {
                                               .sendPhoneNumber(context);
                                         },
                                         text: 'Continue',
-                                        height: 70,
-                                        width: 124,
+                                        height: 50.h,
+                                        width: 124.w,
                                       ),
                                     ),
                                   ),
@@ -104,7 +111,7 @@ class _PhoneScreenState extends State<PhoneScreen> {
                               ).toList(),
                             ),
                           ),
-                          if (i < 2) const SizedBox(height: 36),
+                          if (i < 2)  SizedBox(height: 36.h),
                         ],
                         Padding(
                           padding: const EdgeInsets.all(36),
@@ -124,10 +131,10 @@ class _PhoneScreenState extends State<PhoneScreen> {
                                         .read<PhoneInputCubit>()
                                         .removeLastNumber();
                                   },
-                                  child: const Icon(
+                                  child:  Icon(
                                     Icons.backspace_outlined,
                                     color: Colors.white,
-                                    size: 24,
+                                    size: 24.sp,
                                   ),
                                 ),
                               ),
@@ -153,13 +160,13 @@ class _PhoneScreenState extends State<PhoneScreen> {
       },
       borderRadius: BorderRadius.circular(12),
       child: Container(
-        width: 80,
-        height: 48,
+        width: 80.w,
+        height: 48.h,
         alignment: Alignment.center,
         child: Text(
           '$number',
-          style: const TextStyle(
-              fontSize: 24, color: Colors.white, fontWeight: FontWeight.bold),
+          style:  TextStyle(
+              fontSize: 24.sp, color: Colors.white, fontWeight: FontWeight.bold),
         ),
       ),
     );

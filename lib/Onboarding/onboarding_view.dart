@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:online_learning_app1/Onboarding/onboarding_items.dart';
 import 'package:online_learning_app1/blocs/navigation.dart';
@@ -50,7 +51,7 @@ class _OnboardingViewState extends State<OnboardingView> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              height: MediaQuery.of(context).size.height * 0.6,
+              height: MediaQuery.of(context).size.height * 0.6.h,
               child: PageView.builder(
                 controller: pageController,
                 itemCount: controller.items.length,
@@ -78,11 +79,11 @@ class _OnboardingViewState extends State<OnboardingView> {
                                 pageController.jumpToPage(
                                     controller.items.length - 1);
                               },
-                              child: const Text(
+                              child:  Text(
                                 "Skip",
                                 style: TextStyle(
                                   color: Color(0xFFB8B8D2),
-                                  fontSize: 14.0,
+                                  fontSize: 14.0.sp,
                                 ),
                               ),
                             ),
@@ -91,23 +92,23 @@ class _OnboardingViewState extends State<OnboardingView> {
                             : const SizedBox(), // Empty space placeholder
                       ),
                       SvgPicture.asset(controller.items[index].image),
-                      const SizedBox(height: 15),
+                       SizedBox(height: 15.sp),
                       Text(
                         controller.items[index].title,
                         textAlign: TextAlign.center,
-                        style: const TextStyle(
+                        style:  TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
-                          fontSize: 22.0,
+                          fontSize: 22.0.sp,
                         ),
                       ),
-                      const SizedBox(height: 15),
+                       SizedBox(height: 15.h),
                       Text(
                         controller.items[index].descriptions,
                         textAlign: TextAlign.center,
-                        style: const TextStyle(
+                        style:  TextStyle(
                           color: Colors.white,
-                          fontSize: 16.0,
+                          fontSize: 16.0.sp,
                         ),
                       ),
                     ],
@@ -115,19 +116,20 @@ class _OnboardingViewState extends State<OnboardingView> {
                 },
               ),
             ),
-            const SizedBox(height: 10),
+             SizedBox(height: 10.sp),
             SmoothPageIndicator(
               controller: pageController,
               count: controller.items.length,
-              effect: const ExpandingDotsEffect(
+              effect:  ExpandingDotsEffect(
                 activeDotColor: Color(0xFF3D5CFF),
-                dotHeight: 5,
-                dotWidth: 9,
+                dotHeight: 5.h,
+                dotWidth: 9.w
+                ,
               ),
             ),
-            const SizedBox(height: 20),
+             SizedBox(height: 20.h),
             Container(
-              height: MediaQuery.of(context).size.height * 0.1,
+              height: MediaQuery.of(context).size.height * 0.1.h,
             ),
             Container(
               height: 50, // Fixed height to maintain layout consistency
@@ -142,7 +144,7 @@ class _OnboardingViewState extends State<OnboardingView> {
                     },
                     text: 'Sign up',
                   ),
-                  const SizedBox(width: 15),
+                   SizedBox(width: 15.w),
                   defaultButton(
                     function: () {
                       _navigationCubit.navigateToLogin(); // Trigger navigation to Log In

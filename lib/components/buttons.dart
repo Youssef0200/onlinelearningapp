@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 Widget  defaultButton({
   double height=50.0,
@@ -20,8 +21,8 @@ Widget  defaultButton({
         onPressed: function,
         child: Text(
           isUpperCase ? text.toUpperCase() : text,
-          style: const TextStyle(
-            fontSize: 18,
+          style:  TextStyle(
+            fontSize: 16.sp,
             color: Colors.white,
           ),
         ),
